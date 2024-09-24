@@ -2,6 +2,15 @@ app:
   title: Scaffolded Backstage App
   baseUrl: http://localhost:3000
 
+  support:
+    url: https://github.com/wearefrank/openapi-frank-generator/issues
+    items:
+      - title: Documentation
+        icon: github
+        links:
+          - url: https://github.com/wearefrank/openapi-frank-generator
+            title: GitHub Documentation
+
 organization:
   name: My Company
 
@@ -44,12 +53,29 @@ integrations:
     #   token: ${GHE_TOKEN}
 
 proxy:
+  endpoints:
+    '/openapi-frank-generator':
+      target: https://openapi-frank-generator.wearefrank.org/
+      credentials: dangerously-allow-unauthenticated
   ### Example for how to add a proxy endpoint for the frontend.
   ### A typical reason to do this is to handle HTTPS and CORS for internal services.
   # endpoints:
   #   '/test':
   #     target: 'https://example.com'
   #     changeOrigin: true
+#  endpoints:
+#    '/receiver-url':
+#      target: https://openapi-frank-generator.wearefrank.org/receiver-url
+#      changeOrigin: true
+#    '/sender-url':
+#      target: https://openapi-frank-generator.wearefrank.org/sender-url
+#      changeOrigin: true
+#    '/receiver-file':
+#      target: https://openapi-frank-generator.wearefrank.org/receiver-file
+#      changeOrigin: true
+#    '/sender-file':
+#      target: https://openapi-frank-generator.wearefrank.org/sender-file
+#      changeOrigin: true
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs

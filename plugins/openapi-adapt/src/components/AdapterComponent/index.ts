@@ -1,0 +1,1 @@
+export { AdapterComponent } from './AdapterComponent';

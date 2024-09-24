@@ -1,0 +1,1 @@
+export { UrlComponent } from './UrlFetchComponent';
