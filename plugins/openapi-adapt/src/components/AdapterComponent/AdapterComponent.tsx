@@ -8,7 +8,10 @@ import {
   ContentHeader,
   SupportButton,
 } from '@backstage/core-components';
-import { UrlComponent, MyForm } from '../AdapterFetchComponents/UrlFetchComponent';
+import {
+  UrlComponent,
+  MyForm,
+} from '../AdapterFetchComponents/UrlFetchComponent';
 import { FileComponent } from '../AdapterFetchComponents/FileFetchComponent';
 
 export const AdapterComponent = () => {
@@ -22,12 +25,15 @@ export const AdapterComponent = () => {
       />
       <Content>
         <ContentHeader title="Frank Generator">
-          <SupportButton>This plugin generates a sender or receiver Frank that can be used in the Frank!Framework.</SupportButton>
+          <SupportButton>
+            This plugin generates a sender or receiver Frank that can be used in
+            the Frank!Framework.
+          </SupportButton>
         </ContentHeader>
         <Grid container spacing={3} direction="column">
           <Grid item>
             <InfoCard title="File Converter">
-              <FileComponent/>
+              <FileComponent />
             </InfoCard>
           </Grid>
           <Grid item>

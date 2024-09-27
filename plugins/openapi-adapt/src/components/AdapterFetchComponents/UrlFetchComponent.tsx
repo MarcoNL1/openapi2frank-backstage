@@ -4,13 +4,16 @@ function UrlComponent({ url }) {
   const [message, setMessage] = useState(''); // State to hold the response message
 
   function handleClick(option: string) {
-    fetch(`http://localhost:8080/${option}-url`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+    fetch(
+      `http://localhost:7007/api/proxy/openapi-frank-generator/${option}-url`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({ url }).toString(),
       },
-      body: new URLSearchParams({ url }).toString(),
-    })
+    )
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -30,7 +33,6 @@ function UrlComponent({ url }) {
         window.URL.revokeObjectURL(objUrl); // Clean up the URL object after the download
         setMessage('File downloaded successfully!'); // Update the UI with success message
         setTimeout(() => setMessage(''), 3000); // Clear the message after 3 seconds
-
       })
       .catch(error => {
         setMessage(`Failed to download file: ${error.message}`); // Display error message in the UI
@@ -97,7 +99,7 @@ function MyForm({ url, setUrl }) {
             borderRadius: '5px',
             border: '1px solid #ccc',
             width: '100%',
-            marginBottom: '20px'
+            marginBottom: '20px',
           }}
           type="text"
           value={url}

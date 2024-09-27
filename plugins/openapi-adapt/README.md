@@ -1,6 +1,6 @@
-# openapi-adapt
+# OpenAPI2Frank
 
-Welcome to the openapi-adapt plugin!
+Welcome to the OpenAPI2Frank plugin!
 
 _This plugin was created through the Backstage CLI_
 

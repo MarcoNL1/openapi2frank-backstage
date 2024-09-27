@@ -1,5 +1,5 @@
 ﻿import React, { ChangeEvent, useRef, useState } from 'react';
-import styles from "./FetchComponents.module.css";
+import styles from './FetchComponents.module.css';
 
 function FileComponent() {
   const [message, setMessage] = useState('');
@@ -33,10 +33,13 @@ function FileComponent() {
     const formData = new FormData();
     formData.append('file', apiFile as Blob);
 
-    fetch(`http://localhost:7007/api/proxy/openapi-frank-generator/${option}-file`, {
-      method: "POST",
-      body: formData,
-    })
+    fetch(
+      `http://localhost:7007/api/proxy/openapi-frank-generator/${option}-file`,
+      {
+        method: 'POST',
+        body: formData,
+      },
+    )
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -109,8 +112,6 @@ function FileComponent() {
       </div>
       {message && <div>{message}</div>} {/* Display the message in the UI */}
     </div>
-
-
   );
 
   function makeId(length: number) {
