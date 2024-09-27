@@ -1,17 +1,35 @@
 {
-  "name": "@internal/backstage-plugin-openapi-adapt",
-  "version": "0.1.0",
+  "name": "@wearefrank/backstage-plugin-openapi2frank",
+  "version": "1.0.0",
+  "description": "This backstage plugin generates a Frank from an OpenAPI Spec that can be used in the WeAreFrank! Framework.",
   "main": "src/index.ts",
-  "types": "src/index.ts",
+  "types": "src/index.d.ts",
   "license": "Apache-2.0",
-  "private": true,
+  "homepage": "https://backstage.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoNL1/openapi2frank-backstage.git"
+  },
+  "keywords": [
+    "OpenAPI",
+    "Generator",
+    "Backstage"
+  ],
+  "author": "MarcoNL1",
+  "bugs": {
+    "url": "https://github.com/MarcoNL1/openapi2frank-backstage/issues"
+  },
   "publishConfig": {
     "access": "public",
     "main": "dist/index.esm.js",
     "types": "dist/index.d.ts"
   },
   "backstage": {
-    "role": "frontend-plugin"
+    "role": "frontend-plugin",
+    "pluginId": "openapi2frank",
+    "pluginPackages": [
+      "@wearefrank/backstage-pluginopenapi2frank"
+    ]
   },
   "sideEffects": false,
   "scripts": {
@@ -45,8 +63,5 @@
     "@testing-library/user-event": "^14.0.0",
     "msw": "^1.0.0",
     "react": "^16.13.1 || ^17.0.0 || ^18.0.0"
-  },
-  "files": [
-    "dist"
-  ]
+  }
 }
