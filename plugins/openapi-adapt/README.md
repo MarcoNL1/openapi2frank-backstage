@@ -6,8 +6,44 @@ _This plugin was created through the Backstage CLI_
 
 ## Getting started
 
-Your plugin has been added to the example app in this repository, meaning you'll be able to access it by running `yarn start` in the root directory, and then navigating to [/openapi-adapt](http://localhost:3000/openapi-adapt).
+To use this plugin, you need to install it in your project.
 
-You can also serve the plugin in isolation by running `yarn start` in the plugin directory.
-This method of serving the plugin provides quicker iteration speed and a faster startup and hot reloads.
-It is only meant for local development, and the setup for it can be found inside the [/dev](./dev) directory.
+```bash
+yarn add @wearefrank/backstage-plugin-openapi2frank
+```
+
+If this command gives an error, try:
+
+```bash
+yarn workspace app add @wearefrank/backstage-plugin-openapi2frank
+```
+
+Then, you need to add it to your Backstage instance. You can do this by adding the following to your ```App.tsx``` file:<br/>
+The ```App.tsx``` file is located at ```packages/app/src/App.tsx```
+
+```tsx
+import { OpenapiAdaptPage } from '@wearefrank/backstage-plugin-openapi2frank';
+
+//<Flatroutes>
+    <Route path="/openapi-adapter" element={<OpenapiAdaptPage />} />
+```
+
+Add the following proxy to your ```app-config.yaml``` file:
+
+```yaml
+proxy:
+  endpoints:
+    '/openapi-frank-generator':
+      target: https://openapi-frank-generator.wearefrank.org/
+      credentials: dangerously-allow-unauthenticated
+```
+
+You can add a navigation item to your sidebar by adding the following to your ```Root.tsx``` file located at ```packages/app/src/components/Root.tsx```, 
+of course you can change the icon and the text to your liking:
+
+```tsx
+import PublishIcon from '@material-ui/icons/Publish';
+
+// <SidebarGroup label="Menu" icon={<MenuIcon />}>
+      <SidebarItem icon={PublishIcon} to="openapi-adapter" text="API Converter" />
+```
