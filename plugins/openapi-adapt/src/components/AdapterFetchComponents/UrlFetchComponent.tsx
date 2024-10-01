@@ -5,7 +5,8 @@ function UrlComponent({ url }) {
 
   function handleClick(option: string) {
     fetch(
-      `http://localhost:7007/api/proxy/openapi-frank-generator/${option}-url`,
+      // `http://localhost:7007/api/proxy/openapi-frank-generator/${option}-url`,
+      `http://localhost:8080/${option}-url`,
       {
         method: 'POST',
         headers: {
@@ -70,6 +71,21 @@ function UrlComponent({ url }) {
       >
         Generate Senders
       </div>
+      <div
+        onClick={() => handleClick('xsd')}
+        style={{
+          textAlign: 'center',
+          width: '200px',
+          padding: '10px',
+          border: '1px solid gray',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          marginBottom: '10px',
+        }}
+      >
+        Generate XSD Only
+      </div>
+      
       {message && <div>{message}</div>} {/* Display the message in the UI */}
     </div>
   );
@@ -94,6 +110,7 @@ function MyForm({ url, setUrl }) {
       <label>
         Enter the URL of an OpenAPI document:
         <input
+          required
           style={{
             padding: '5px',
             borderRadius: '5px',

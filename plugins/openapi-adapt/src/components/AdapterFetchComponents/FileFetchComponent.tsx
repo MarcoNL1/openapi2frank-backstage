@@ -34,7 +34,8 @@ function FileComponent() {
     formData.append('file', apiFile as Blob);
 
     fetch(
-      `http://localhost:7007/api/proxy/openapi-frank-generator/${option}-file`,
+      // `http://localhost:7007/api/proxy/openapi-frank-generator/${option}-file`,
+      `http://localhost:8080/${option}-file`,
       {
         method: 'POST',
         body: formData,
@@ -76,6 +77,7 @@ function FileComponent() {
       >
         {apiFile ? <div>{apiFile.name}</div> : <span>Drag and Drop here </span>}
         <input
+          required
           ref={fileInputRef}
           type="file"
           style={{ display: 'none' }}
@@ -110,6 +112,21 @@ function FileComponent() {
       >
         Generate Senders
       </div>
+      <div
+        onClick={() => handleClick('xsd')}
+        style={{
+          textAlign: 'center',
+          width: '200px',
+          padding: '10px',
+          border: '1px solid gray',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          marginBottom: '10px',
+        }}
+      >
+        Generate XSD Only
+      </div>
+
       {message && <div>{message}</div>} {/* Display the message in the UI */}
     </div>
   );
