@@ -2,6 +2,9 @@
 
 Welcome to the OpenAPI2Frank plugin!
 
+This plugin is used to convert OpenAPI specifications to Franks, which can be used in the Frank!Framework. <br/>
+It generates a zip file containing XML files of the Franks and XSD files for each endpoint of the OpenAPI specification.
+
 _This plugin was created through the Backstage CLI_
 
 ## Getting started
