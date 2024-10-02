@@ -56,7 +56,7 @@ The problem I encountered with the proxy was that I had no credentials, I solved
 
 To publish a plugin, start by installing typescript:
 ```sh
-npm insall -g typescript
+npm install -g typescript
 ```
 
 Then check if it installed successfully:
