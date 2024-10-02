@@ -68,16 +68,16 @@ Navigate to the root of your plugin and run the following command to generate th
 ```sh
 npm run build
 ```
-Without this folder your plugin will not be recognized in other Backstage instances.
+Without this folder your plugin will not be recognized in other Backstage instances and be unusable.
 
 You are now ready to publish your plugin, follow [this tutorial](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages).
-After you created the package.json file, make sure to add the following line to the file if it is not already there:
+After you created the package.json file, make sure to add the following part to the file if it is not already there:
 ```json
 "files": [
     "dist"
   ]
 ```
-This ensures you publish the correct code for others to install as a plugin.
+This ensures you publish the right files that others will install.
 
 Make sure to provide all instructions on how to install and use your plugin in the README.md file.
 
