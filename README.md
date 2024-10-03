@@ -79,8 +79,9 @@ After you created the package.json file, make sure to add the following part to 
 ```
 This ensures you publish the right files that others will install.
 
-Make sure to provide all instructions on how to install and use your plugin in the README.md file. <br/>
-Take a look at the [README.md](plugins/openapi-adapt/README.md) of the plugin I created in this project for an idea of what instructions should be added.
+>[!IMPORTANT]
+> Make sure to provide all instructions on how to install and use your plugin in the README.md file. <br/>
+>Take a look at the [README.md](plugins/openapi-adapt/README.md) of the plugin I created in this project for an idea of what instructions should be added.
 
 ## Conclusion
 In this tutorial, we learned how to set up a Backstage app, run it locally, and develop a new frontend plugin.
