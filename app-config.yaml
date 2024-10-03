@@ -3,12 +3,17 @@ app:
   baseUrl: http://localhost:3000
 
   support:
-    url: https://github.com/wearefrank/openapi-frank-generator/issues
+    url: https://github.com/MarcoNL1/openapi2frank-backstage/issues
     items:
-      - title: Documentation
+      - title: Generator Documentation
         icon: github
         links:
           - url: https://github.com/wearefrank/openapi-frank-generator
+            title: GitHub Documentation
+      - title: Plugin Documentation
+        icon: github
+        links:
+          - url: https://github.com/MarcoNL1/openapi2frank-backstage/plugins/openapi-adapt
             title: GitHub Documentation
 
 organization:
