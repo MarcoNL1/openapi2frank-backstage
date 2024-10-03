@@ -68,7 +68,7 @@ Navigate to the root of your plugin and run the following command to generate th
 ```sh
 npm run build
 ```
-<b>Without this folder your plugin will not be recognized in other Backstage instances and be unusable.</b>
+<b>Without this folder your plugin will not be recognized in other Backstage instances and will be unusable.</b>
 
 You are now ready to publish your plugin, follow [this tutorial](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages).
 After you have created the package.json file, make sure to add the following part to the file if it is not already there:
