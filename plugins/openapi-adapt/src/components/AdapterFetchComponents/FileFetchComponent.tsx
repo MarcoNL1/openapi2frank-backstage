@@ -1,6 +1,7 @@
 ﻿import React, { ChangeEvent, useRef, useState } from 'react';
 import styles from './FetchComponents.module.css';
 import { makeId } from './MakeIdComponent';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function FileComponent() {
   const [message, setMessage] = useState('');
@@ -76,9 +77,23 @@ function FileComponent() {
         onDrop={handleFileDrop}
         onClick={handleFileUploadClick}
       >
-        {apiFile ? <div>{apiFile.name}</div> : <span>Drag and Drop here </span>}
+        {apiFile ? (
+          <div>
+            {apiFile.name}
+            <DeleteIcon
+              onClick={(event) => {
+                event.stopPropagation();
+                setApiFile(null);
+                if (fileInputRef.current) {
+                  fileInputRef.current.value = '';
+                }
+              }}
+            />
+          </div>
+        ) : (
+          <span> Drag and Drop here </span>
+        )}
         <input
-          required
           ref={fileInputRef}
           type="file"
           style={{ display: 'none' }}
