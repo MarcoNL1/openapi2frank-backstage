@@ -32,12 +32,12 @@ export const AdapterComponent = () => {
         </ContentHeader>
         <TabbedLayout>
           <TabbedLayout.Route path="/" title="File Converter">
-            <Card style={{ padding: '10px', width: '100%', }}>
+            <Card style={{ padding: '10px', width: '103.4%', margin: '0 -1.6%' }}>
               <FileComponent />
             </Card>
           </TabbedLayout.Route>
           <TabbedLayout.Route path="/urlconverter" title="URL Converter">
-            <Card style={{ padding: '10px', width: '100%', }}>
+            <Card style={{ padding: '10px', width: '103.4%', margin: '0 -1.6%' }}>
               <MyForm url={url} setUrl={setUrl} />
               <UrlComponent url={url} />
             </Card>
