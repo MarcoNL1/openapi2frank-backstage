@@ -13,7 +13,7 @@ app:
       - title: Plugin Documentation
         icon: github
         links:
-          - url: https://github.com/MarcoNL1/openapi2frank-backstage/plugins/openapi-adapt
+          - url: https://github.com/MarcoNL1/openapi2frank-backstage/tree/master/plugins/openapi-adapt
             title: GitHub Documentation
 
 organization:
@@ -57,11 +57,11 @@ integrations:
     #   apiBaseUrl: https://ghe.example.net/api/v3
     #   token: ${GHE_TOKEN}
 
-#proxy:
-#  endpoints:
-#    '/openapi-frank-generator':
-#      target: https://openapi-frank-generator.wearefrank.org/
-#      credentials: dangerously-allow-unauthenticated
+proxy:
+  endpoints:
+    '/openapi-frank-generator':
+      target: https://openapi-frank-generator.wearefrank.org/
+      credentials: dangerously-allow-unauthenticated
   ### Example for how to add a proxy endpoint for the frontend.
   ### A typical reason to do this is to handle HTTPS and CORS for internal services.
   # endpoints:
