@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { Grid } from '@material-ui/core';
 import {
-  InfoCard,
   Header,
   Page,
   Content,
   ContentHeader,
   SupportButton,
+  TabbedLayout
 } from '@backstage/core-components';
 import {
   UrlComponent,
   MyForm,
 } from '../AdapterFetchComponents/UrlFetchComponent';
 import { FileComponent } from '../AdapterFetchComponents/FileFetchComponent';
+import { Card } from '@material-ui/core';
 
 export const AdapterComponent = () => {
   const [url, setUrl] = useState('');
@@ -30,19 +30,19 @@ export const AdapterComponent = () => {
             the Frank!Framework.
           </SupportButton>
         </ContentHeader>
-        <Grid container spacing={3} direction="column">
-          <Grid item>
-            <InfoCard title="File Converter">
+        <TabbedLayout>
+          <TabbedLayout.Route path="/" title="File Converter">
+            <Card style={{ padding: '10px', width: '100%', }}>
               <FileComponent />
-            </InfoCard>
-          </Grid>
-          <Grid item>
-            <InfoCard title="URL Converter">
+            </Card>
+          </TabbedLayout.Route>
+          <TabbedLayout.Route path="/urlconverter" title="URL Converter">
+            <Card style={{ padding: '10px', width: '100%', }}>
               <MyForm url={url} setUrl={setUrl} />
               <UrlComponent url={url} />
-            </InfoCard>
-          </Grid>
-        </Grid>
+            </Card>
+          </TabbedLayout.Route>
+        </TabbedLayout>
       </Content>
     </Page>
   );
