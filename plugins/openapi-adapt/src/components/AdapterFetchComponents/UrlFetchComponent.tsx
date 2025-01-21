@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { makeId } from './MakeIdComponent';
+import { useApi, configApiRef } from '@backstage/core-plugin-api';
 
 function UrlComponent({ url } : { url: string }) {
   const [message, setMessage] = useState(''); // State to hold the response message
+  const config = useApi(configApiRef);
 
   function handleClick(option: string) {
+    const baseUrl = config.getString('backend.baseUrl');
+
     fetch(
-      // `http://localhost:7007/api/proxy/openapi-frank-generator/${option}-url`,
-      `http://localhost:8080/${option}-url`,
+      `${baseUrl}/api/proxy/openapi-frank-generator/${option}-url`,
       {
         method: 'POST',
         headers: {
@@ -72,20 +75,20 @@ function UrlComponent({ url } : { url: string }) {
       >
         Generate Senders
       </div>
-      <div
-        onClick={() => handleClick('xsd')}
-        style={{
-          textAlign: 'center',
-          width: '200px',
-          padding: '10px',
-          border: '1px solid gray',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          marginBottom: '10px',
-        }}
-      >
-        Generate XSD Only
-      </div>
+      {/*<div*/}
+      {/*  onClick={() => handleClick('xsd')}*/}
+      {/*  style={{*/}
+      {/*    textAlign: 'center',*/}
+      {/*    width: '200px',*/}
+      {/*    padding: '10px',*/}
+      {/*    border: '1px solid gray',*/}
+      {/*    borderRadius: '5px',*/}
+      {/*    cursor: 'pointer',*/}
+      {/*    marginBottom: '10px',*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  Generate XSD Only*/}
+      {/*</div>*/}
       {message && <div>{message}</div>} {/* Display the message in the UI */}
     </div>
   );
@@ -103,7 +106,7 @@ function MyForm({ url, setUrl } : { url: string, setUrl: React.Dispatch<React.Se
             borderRadius: '5px',
             border: '1px solid #ccc',
             width: '100%',
-            marginBottom: '20px',
+            marginBottom: '34.5px',
           }}
           type="text"
           value={url}

@@ -2,11 +2,13 @@
 import styles from './FetchComponents.module.css';
 import { makeId } from './MakeIdComponent';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { useApi, configApiRef } from '@backstage/core-plugin-api';
 
 function FileComponent() {
   const [message, setMessage] = useState('');
   const [apiFile, setApiFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const config = useApi(configApiRef);
 
   const handleFileUploadClick = () => {
     fileInputRef.current?.click();
@@ -34,10 +36,10 @@ function FileComponent() {
   function handleClick(option: string) {
     const formData = new FormData();
     formData.append('file', apiFile as Blob);
+    const baseUrl = config.getString('backend.baseUrl');
 
     fetch(
-      // `http://localhost:7007/api/proxy/openapi-frank-generator/${option}-file`,
-      `http://localhost:8080/${option}-file`,
+      `${baseUrl}/api/proxy/openapi-frank-generator/${option}-file`,
       {
         method: 'POST',
         body: formData,
@@ -128,20 +130,20 @@ function FileComponent() {
       >
         Generate Senders
       </div>
-      <div
-        onClick={() => handleClick('xsd')}
-        style={{
-          textAlign: 'center',
-          width: '200px',
-          padding: '10px',
-          border: '1px solid gray',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          marginBottom: '10px',
-        }}
-      >
-        Generate XSD Only
-      </div>
+      {/*<div*/}
+      {/*  onClick={() => handleClick('xsd')}*/}
+      {/*  style={{*/}
+      {/*    textAlign: 'center',*/}
+      {/*    width: '200px',*/}
+      {/*    padding: '10px',*/}
+      {/*    border: '1px solid gray',*/}
+      {/*    borderRadius: '5px',*/}
+      {/*    cursor: 'pointer',*/}
+      {/*    marginBottom: '10px',*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  Generate XSD Only*/}
+      {/*</div>*/}
 
       {message && <div>{message}</div>} {/* Display the message in the UI */}
     </div>
