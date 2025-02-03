@@ -37,6 +37,7 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { OpenapiAdaptPage } from '@internal/backstage-plugin-openapi-adapt';
+import { FrankdocPage } from '@internal/backstage-plugin-frankdoc';
 
 const app = createApp({
   apis,
@@ -97,6 +98,7 @@ const routes = (
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/openapi-adapter" element={<OpenapiAdaptPage />} />
+    <Route path="/frankdoc" element={<FrankdocPage />} />
   </FlatRoutes>
 );
 
