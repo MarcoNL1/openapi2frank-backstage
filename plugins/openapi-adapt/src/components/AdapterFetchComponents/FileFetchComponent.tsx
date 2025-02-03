@@ -130,20 +130,20 @@ function FileComponent() {
       >
         Generate Senders
       </div>
-      {/*<div*/}
-      {/*  onClick={() => handleClick('xsd')}*/}
-      {/*  style={{*/}
-      {/*    textAlign: 'center',*/}
-      {/*    width: '200px',*/}
-      {/*    padding: '10px',*/}
-      {/*    border: '1px solid gray',*/}
-      {/*    borderRadius: '5px',*/}
-      {/*    cursor: 'pointer',*/}
-      {/*    marginBottom: '10px',*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  Generate XSD Only*/}
-      {/*</div>*/}
+      <div
+        onClick={() => handleClick('xsd')}
+        style={{
+          textAlign: 'center',
+          width: '200px',
+          padding: '10px',
+          border: '1px solid gray',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          marginBottom: '10px',
+        }}
+      >
+        Generate XSD Only
+      </div>
 
       {message && <div>{message}</div>} {/* Display the message in the UI */}
     </div>
